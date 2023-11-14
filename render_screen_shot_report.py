@@ -52,6 +52,12 @@ def render_html(path_dir: str, file_media_ext: str):
             'en_image_path': value['en'],
         })
 
+    def sort_test_case(elem):
+        return elem['name']
+
+    # sort list with key
+    test_cases.sort(key=sort_test_case)
+
     # TODO remove test case info hard code here
     report = {
         'request_id': '20193812903',
