@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="text-align: center;">
+    <br>
+    <h1>Screenshot Report</h1>
+    <p>Request id: {{report.request_id}}, at {{report.requested_at}}</p>
+    <p>Customer code: {{report.customer_code}}, unit {{report.unit_code}}</p>
+    <br>
+</div>
+<div>
+    <table width="100%" border="1px">
+        {% for test in report.test_cases %}
+        <tr>
+            <td style="text-align: center;" colspan="2"><h3>{{test.name}}</h3></td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                <img style="max-width: 80%" src="{{test.en_image_path}}"/>
+            </td>
+            <td style="text-align: center">
+                <img style="max-width: 80%" src="{{test.vi_image_path}}"/>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
